@@ -1,6 +1,16 @@
 
-Brand: a
-Model: a
+Brand: Test
+Model: Bike
 Model year: 2001
-Type: a
-Kilometer range: 100
+Type: road
+Kilometer range: 200
+Brand: Kona
+Model: DewPlus
+Model year: 2020
+Type: gravel
+Kilometer range: 674
+Brand: Connandale
+Model: TopStone3
+Model year: 2021
+Type: gravel
+Kilometer range: 543

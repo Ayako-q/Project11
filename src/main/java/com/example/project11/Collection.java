@@ -51,7 +51,7 @@ public class Collection {
         System.arraycopy(collection, 0, newArray, 0, i);
         countOfObjects--; // decreasing count of objects cuz we have -1 object
         // copy all teh elements after i
-        System.arraycopy(collection, i - 1, newArray, i, countOfObjects - 2);
+        System.arraycopy(collection, i - 1, newArray, i, countOfObjects - 1);
         collection = newArray;
     }
     // 3. Print description for one item
