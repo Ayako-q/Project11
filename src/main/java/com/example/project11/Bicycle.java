@@ -62,9 +62,9 @@ public class Bicycle {
     }
 
     // 1.5 other methods
-    public int kmPerDay() {
-        System.out.println("\nHow many months do you own this bike?");
-        return (int) (kilometersRange / getUserInput() * 30.437);
+    public float kmPerDay() {
+        System.out.println("\nHow long (in months) do you own these bikes?");
+        return (float) (kilometersRange / getUserInput() / 30.437);
     }
 
     // Method for taking users input as integer

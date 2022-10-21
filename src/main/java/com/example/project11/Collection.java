@@ -50,7 +50,7 @@ public class Collection {
         System.arraycopy(collection, 0, newArray, 0, i);
         countOfObjects--; // decreasing count of objects cuz we have -1 object
         // copy all teh elements after i
-        System.arraycopy(collection, i - 1, newArray, i, countOfObjects - 1);
+        System.arraycopy(collection, i - 1, newArray, i, countOfObjects - 2);
         collection = newArray;
     }
     // 3. Print description for one item
@@ -67,6 +67,9 @@ public class Collection {
 
     // 5. Print all bikes method
     public void printAll() {
+        if(countOfObjects == 0){
+            System.out.println("Error, add bikes to your collection first!");
+            return;}
         int index = 0;
         for (Bicycle b : collection) {
             System.out.println("\nBike " + index + ":");
@@ -102,6 +105,7 @@ public class Collection {
     public void searchByYear() {
         System.out.println("\nPlease, enter model year of the bike you're looking for:");
         int year = Integer.parseInt(getUserInput());
+        System.out.println("\nFound results:");
         for (Bicycle b : collection) {
             if (b.getModelYear() == year) {
                 System.out.println(b.getDescription());
@@ -146,7 +150,7 @@ public class Collection {
         if (countOfObjects == 0){ // if array is empty, prevent from error
             System.out.println("You have no bicycles!\n");
             return;}
-        int kilometersPerDay = 0;
+        float kilometersPerDay = 0;
         for(Bicycle b : collection){
             kilometersPerDay += b.kmPerDay();
         }
