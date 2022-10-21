@@ -22,24 +22,23 @@ public class Collection {
         arr[countOfObjects] = c;
         collection = arr;
         countOfObjects++;
-        System.out.println("\nYour camera has been successfully added");
+        System.out.println("\nYour bike has been successfully added");
     }
 
     // part of ADD method
     public void toBicycleProperties() {
+        Bicycle[] arr = new Bicycle[countOfObjects + 1];
         System.out.println("Please, enter you bike info in format: " +
                 "\n'Brand' 'Model' 'Model year' 'Type' 'Kilometers range'");
         String i = getUserInput();
         String[] o = i.trim().split("\s+");
-        for (Bicycle b : collection) {
-            b.brand = o[0];
-            b.model = o[1];
-            b.setModelYear(Integer.parseInt(o[2]));
-            b.setType(o[3]);
-            b.setKilometersRange(Integer.parseInt(o[4]));
-        }
-        Bicycle bike = new Bicycle();
-        addBike(bike);
+        Bicycle b = new Bicycle();
+        b.brand = o[0];
+        b.model = o[1];
+        b.setModelYear(Integer.parseInt(o[2]));
+        b.setType(o[3]);
+        b.setKilometersRange(Integer.parseInt(o[4]));
+        addBike(b);
     }
 
     // 2. Remove method
@@ -76,6 +75,9 @@ public class Collection {
 
     // 6. Sort by model year method
     public void sortBikes() {
+        if (countOfObjects == 0){ // prevent user from sorting empty array
+            System.out.println("Error, this array is empty, please, add bikes to it first\n");
+            return;}
         boolean isSorted = false;
         int outIterations = 0;
         while (!isSorted) {
@@ -139,6 +141,9 @@ public class Collection {
     }
 
     public void getKmPerDay(){
+        if (countOfObjects == 0){ // if array is empty, prevent from error
+            System.out.println("You have no bicycles!\n");
+            return;}
         int kilometersPerDay = 0;
         for(Bicycle b : collection){
             kilometersPerDay += b.kmPerDay();
@@ -192,7 +197,7 @@ public class Collection {
                 outputToFile();
             } else if (input.equals("0")){
                 isHere = false;
-            } else{ System.out.println("Please, try again, this is not a proper answer!");}
+            } else{ System.out.println("\nPlease, try again, this is not a proper answer!\n");}
         }
     }
 
