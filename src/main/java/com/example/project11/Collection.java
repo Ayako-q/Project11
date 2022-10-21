@@ -15,9 +15,8 @@ public class Collection {
     // 1. Method for adding a new item
     public void addBike(Bicycle c) {
         Bicycle[] arr = new Bicycle[countOfObjects + 1];
-        Bicycle[] copyOfCollection = Arrays.copyOf(collection, countOfObjects + 1);
         for (int i = 0; i < arr.length - 1; i++) {
-            arr[i] = copyOfCollection[i];
+            arr[i] = collection[i];
         }
         arr[countOfObjects] = c;
         collection = arr;
@@ -68,8 +67,10 @@ public class Collection {
 
     // 5. Print all bikes method
     public void printAll() {
+        int index = 0;
         for (Bicycle b : collection) {
-            b.getDescription();
+            System.out.println("\nBike " + index + ":");
+            System.out.println(b.getDescription());
         }
     }
 
