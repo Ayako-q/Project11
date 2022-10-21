@@ -62,7 +62,7 @@ public class Collection {
     // 4. Print one line description for each bike
     public void printList() {
         for (Bicycle b : collection) {
-            b.getTitle();
+            System.out.println(b.getTitle());
         }
     }
 
