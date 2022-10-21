@@ -2,8 +2,6 @@ package com.example.project11;
 
 import java.io.*;
 import java.util.Scanner;
-import java.util.Arrays;
-import java.io.PrintWriter;
 
 public class Collection {
     private int countOfObjects;
@@ -122,12 +120,13 @@ public class Collection {
             FileWriter myWriter = new FileWriter("output_data.txt"); // Creating a new file writer
             for(Bicycle b : collection) // An improved for loop that goes through each bike
             {
-                myWriter.write(b.getDescription()); // Writing the string to txt file\
+                myWriter.write(b.getDescription()); // Writing the string to txt file
+                myWriter.write(" "); // Writes new line, so that code looks better
             }
             myWriter.close(); // Closing the writer
             System.out.println("Output successful!");
         }
-        catch (IOException e)
+        catch (IOException e) // Catching errors if there are some
         {
             System.out.println("Error");
             e.printStackTrace();
@@ -144,19 +143,19 @@ public class Collection {
             throw new RuntimeException(e);
         }
         Scanner myFileReader = new Scanner(myFile);
-        while (myFileReader.hasNextLine()) {
-            String current_line = myFileReader.nextLine();
-            System.out.println(current_line);
+        while (myFileReader.hasNextLine()) { // if we have a new line - go further
+            String current_line = myFileReader.nextLine(); // Gives data from current line to variable
+            System.out.println(current_line); // prints that line from variable where we store it
         }
-        myFileReader.close();
+        myFileReader.close(); // closing reader
     }
 
     public void getKmPerDay(){
         if (countOfObjects == 0){ // if array is empty, prevent from error
             System.out.println("You have no bicycles!\n");
             return;}
-        float kilometersPerDay = 0;
-        for(Bicycle b : collection){
+        float kilometersPerDay = 0; // variable that contains average KM per day
+        for(Bicycle b : collection){ // Using improved for loop to
             kilometersPerDay += b.kmPerDay();
         }
         System.out.println("You ride " + kilometersPerDay + " km per day!");

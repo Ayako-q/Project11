@@ -58,7 +58,7 @@ public class Bicycle {
 
     // 1.4 method to return short one line item description
     public String getTitle() {
-        return "\nThis is " + modelYear + brand + model;
+        return "\nThis is " + modelYear + " " + brand + " " + model + "\n";
     }
 
     // 1.5 other methods
