@@ -3,4 +3,4 @@ Brand: a
 Model: a
 Model year: 2001
 Type: a
-Kilometer range: 1000
+Kilometer range: 100
