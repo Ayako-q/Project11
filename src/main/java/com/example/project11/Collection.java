@@ -45,12 +45,12 @@ public class Collection {
         if (countOfObjects == 0 || i < 0 || i >= countOfObjects){ // prevent user from removing non-existing element
             System.out.println("Error, this item does not exist");
             return;}
-        Bicycle[] newArray = new Bicycle[countOfObjects];
+        Bicycle[] newArray = new Bicycle[countOfObjects - 1];
         // copy elements before i to new array
         System.arraycopy(collection, 0, newArray, 0, i);
         countOfObjects--; // decreasing count of objects cuz we have -1 object
         // copy all teh elements after i
-        System.arraycopy(collection, i + 1, newArray, i, countOfObjects);
+        System.arraycopy(collection, i - 1, newArray, i, countOfObjects - 1);
         collection = newArray;
     }
     // 3. Print description for one item
@@ -70,7 +70,8 @@ public class Collection {
         int index = 0;
         for (Bicycle b : collection) {
             System.out.println("\nBike " + index + ":");
-            System.out.println(b.getDescription());
+            System.out.println(b.getDescription() + "\n");
+            index++;
         }
     }
 
@@ -103,7 +104,7 @@ public class Collection {
         int year = Integer.parseInt(getUserInput());
         for (Bicycle b : collection) {
             if (b.getModelYear() == year) {
-                b.getDescription();
+                System.out.println(b.getDescription());
             }
         }
     }
