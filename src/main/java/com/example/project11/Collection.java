@@ -2,6 +2,7 @@ package com.example.project11;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Collection {
     private int countOfObjects;
@@ -14,8 +15,9 @@ public class Collection {
     // 1. Method for adding a new item
     public void addBike(Bicycle c) {
         Bicycle[] arr = new Bicycle[countOfObjects + 1];
+        Bicycle[] copyOfCollection = Arrays.copyOf(collection, countOfObjects + 1);
         for (int i = 0; i < arr.length - 1; i++) {
-            arr[i] = collection[i];
+            arr[i] = copyOfCollection[i];
         }
         arr[countOfObjects] = c;
         collection = arr;
@@ -42,14 +44,17 @@ public class Collection {
 
     // 2. Remove method
     public void remove(int i) {
-        collection[i] = null;
-        /*Collection newColl = new Collection();
-        for(Bicycle b : collection){
-            if(b != null){
-                newColl.addBike(b);
-            }*/
+        if (countOfObjects == 0 || i < 0 || i >= countOfObjects){ // prevent user from removing non-existing element
+            System.out.println("Error, this item does not exist");
+            return;}
+        Bicycle[] newArray = new Bicycle[countOfObjects];
+        // copy elements before i to new array
+        System.arraycopy(collection, 0, newArray, 0, i);
+        countOfObjects--; // decreasing count of objects cuz we have -1 object
+        // copy all teh elements after i
+        System.arraycopy(collection, i + 1, newArray, i, countOfObjects);
+        collection = newArray;
     }
-
     // 3. Print description for one item
     public void printOne(int i) {
         collection[i].getDescription();
@@ -185,8 +190,9 @@ public class Collection {
                 readFile();
             } else if (input.equals("9")) {
                 outputToFile();
-            }
-            isHere = false;
+            } else if (input.equals("0")){
+                isHere = false;
+            } else{ System.out.println("Please, try again, this is not a proper answer!");}
         }
     }
 
