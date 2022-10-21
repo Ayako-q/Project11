@@ -70,7 +70,6 @@ public class Bicycle {
     // Method for taking users input as integer
     public static int getUserInput() {
         Scanner in = new Scanner(System.in);
-        in.nextInt();
         return in.nextInt();
     }
 }

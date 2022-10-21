@@ -3,6 +3,7 @@ package com.example.project11;
 import java.io.*;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.io.PrintWriter;
 
 public class Collection {
     private int countOfObjects;
@@ -116,18 +117,22 @@ public class Collection {
     // Addition functionality
     // Method to output array of objects to file
     public void outputToFile() {
-        FileOutputStream myFile = null;
-        try {
-            myFile = new FileOutputStream("output_data.txt");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        try
+        {
+            FileWriter myWriter = new FileWriter("output_data.txt"); // Creating a new file writer
+            for(Bicycle b : collection) // An improved for loop that goes through each bike
+            {
+                myWriter.write(b.getDescription()); // Writing the string to txt file\
+            }
+            myWriter.close(); // Closing the writer
+            System.out.println("Output successful!");
         }
-        PrintWriter myFileWriter = new PrintWriter(myFile);
+        catch (IOException e)
+        {
+            System.out.println("Error");
+            e.printStackTrace();
+        }
 
-        for (Bicycle b : collection) {
-            myFileWriter.println(b.getDescription());
-        }
-        System.out.println("Output complete!");
     }
 
     // Method to read from file
@@ -154,7 +159,7 @@ public class Collection {
         for(Bicycle b : collection){
             kilometersPerDay += b.kmPerDay();
         }
-        System.out.println("You ride " + kilometersPerDay + "km per day!");
+        System.out.println("You ride " + kilometersPerDay + " km per day!");
     }
 
     // User dialogue part
@@ -182,7 +187,7 @@ public class Collection {
             userInterface();
             String input = getUserInput();
             if (input.equals("1")) {
-                printAll();
+                printList();
             } else if (input.equals("2")) {
                 toBicycleProperties();
             } else if (input.equals("3")) {
