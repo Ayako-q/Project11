@@ -164,61 +164,7 @@ public class Collection {
         }
         System.out.println("You ride " + kilometersPerDay + " km per day!");
     }
-
-    // User dialogue part
-
-    public void userInterface() {
-        System.out.println("""
-                ====== Bike database ======
-                Choose an option to proceed:
-                1 - print bike list
-                2 - add new bike
-                3 - remove bike
-                4 - sort bikes by model year
-                5 - count average km count per day
-                6 - search bikes by year
-                7 - print detailed bike list
-                8 - read bikes from the file
-                9 - save bikes to the file
-                0 - exit the program
-                """);
-    }
-
-    public void start() {
-        boolean isHere = true;
-        while (isHere) {
-            userInterface();
-            String input = getUserInput();
-            if (input.equals("1")) {
-                printList();
-            } else if (input.equals("2")) {
-                toBicycleProperties();
-            } else if (input.equals("3")) {
-                System.out.println("\nPlease, enter index of element that you would like to delete:");
-                int index = Integer.parseInt(getUserInput());
-                remove(index);
-            } else if (input.equals("4")) {
-                sortBikes();
-            } else if (input.equals("5")) {
-                getKmPerDay();
-            } else if (input.equals("6")) {
-                searchByYear();
-            } else if (input.equals("7")) {
-                printAll();
-            } else if (input.equals("8")) {
-                readFile();
-            } else if (input.equals("9")) {
-                outputToFile();
-            } else if (input.equals("0")) {
-                isHere = false;
-            } else {
-                System.out.println("\nPlease, try again, this is not a proper answer!\n");
-            }
-        }
-    }
-
     public String getUserInput() {
         Scanner in = new Scanner(System.in);
-        return in.nextLine();
-    }
+        return in.nextLine();}
 }

@@ -18,14 +18,14 @@ public class JavaFXUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Title of the window");
+        primaryStage.setTitle("Project 11");
         Button button = new Button();
-        button.setText("CLICK ME!");
+        button.setText("Davai clikai");
 
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
 
-        Scene scene = new Scene(layout, 800, 600);
+        Scene scene = new Scene(layout, 300, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
