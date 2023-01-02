@@ -139,18 +139,22 @@ public class Collection {
 
     // Method to read from file
     public void readFile() {
-        FileInputStream myFile = null;
         try {
-            myFile = new FileInputStream("output_data.txt");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            FileInputStream myFile = null;
+            try {
+                myFile = new FileInputStream("output_data.txt");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            Scanner myFileReader = new Scanner(myFile);
+            while (myFileReader.hasNextLine()) { // if we have a new line - go further
+                String current_line = myFileReader.nextLine(); // Gives data from current line to variable
+                System.out.println(current_line); // prints that line from variable where we store it
+            }
+            myFileReader.close(); // closing reader}
+        } catch (Exception e){
+            System.out.println("Sorry, the file you want to read from doesn't exist\n");
         }
-        Scanner myFileReader = new Scanner(myFile);
-        while (myFileReader.hasNextLine()) { // if we have a new line - go further
-            String current_line = myFileReader.nextLine(); // Gives data from current line to variable
-            System.out.println(current_line); // prints that line from variable where we store it
-        }
-        myFileReader.close(); // closing reader
     }
 
     public void getKmPerDay() {

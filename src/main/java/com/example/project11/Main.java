@@ -52,6 +52,7 @@ public class Main{
             } else if (input.equals("9")) {
                 c.outputToFile();
             } else if (input.equals("0")) {
+                System.out.println("\nNo problem, goodbye!");
                 isHere = false;
             } else {
                 System.out.println("\nPlease, try again, this is not a proper answer!\n");

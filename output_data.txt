@@ -1,6 +1,0 @@
-
-Brand: Kona
-Model: DewPlus
-Model year: 2020
-Type: road
-Kilometer range: 3050 

@@ -25,7 +25,7 @@ public class JavaFXUI extends Application {
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
 
-        Scene scene = new Scene(layout, 300, 300);
+        Scene scene = new Scene(layout, 720, 360);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
