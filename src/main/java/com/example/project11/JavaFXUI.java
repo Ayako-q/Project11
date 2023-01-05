@@ -38,8 +38,8 @@ public class JavaFXUI extends Application {
 
         // scene 2
         Label l2 = new Label("This scene is still unready\n click the button to come back");
+        Label l3 = new Label("Woops, it didn't work, try again later, I will fix it!");
         Button printList = new Button("Print bike list");
-        printList.setOnAction(e -> System.out.println("Woops, it doesn't work"));
         Button add = new Button("Add");
         Button remove = new Button("Remove");
         Button sort = new Button("Sort");
@@ -53,7 +53,8 @@ public class JavaFXUI extends Application {
 
         VBox layout2 = new VBox(20);
         layout2.getChildren().addAll(l2, printList, add, remove, sort, avg, search, print, read, save, b2);
-        s2 = new Scene(layout2, 600, 520);
+        s2 = new Scene(layout2, 600, 600);
+        printList.setOnAction(e -> layout2.getChildren().add(l3));
 
         window.setScene(s1);
         window.setTitle("Bicycle collection");
