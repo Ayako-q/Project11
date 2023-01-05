@@ -25,18 +25,22 @@ public class Collection {
 
     // part of ADD method
     public void toBicycleProperties() {
-        Bicycle[] arr = new Bicycle[countOfObjects + 1];
-        System.out.println("Please, enter you bike info in format: " +
-                "\n'Brand' 'Model' 'Model year' 'Type' 'Kilometers range'");
-        String i = getUserInput();
-        String[] o = i.trim().split("\s+"); // dividing input string into array elements
-        Bicycle b = new Bicycle(); // creating a new object to save it
-        b.brand = o[0]; // assigning values to bicycle properties
-        b.model = o[1];
-        b.setModelYear(Integer.parseInt(o[2])); // using setters cuz these three properties are private
-        b.setType(o[3]);
-        b.setKilometersRange(Integer.parseInt(o[4]));
-        addBike(b); // going to method that will add my item to collection
+        try{
+            Bicycle[] arr = new Bicycle[countOfObjects + 1];
+            System.out.println("Please, enter you bike info in format: " +
+                    "\n'Brand' 'Model' 'Model year' 'Type' 'Kilometers range'");
+            String i = getUserInput();
+            String[] o = i.trim().split("\s+"); // dividing input string into array elements
+            Bicycle b = new Bicycle(); // creating a new object to save it
+            b.brand = o[0]; // assigning values to bicycle properties
+            b.model = o[1];
+            b.setModelYear(Integer.parseInt(o[2])); // using setters cuz these three properties are private
+            b.setType(o[3]);
+            b.setKilometersRange(Integer.parseInt(o[4]));
+            addBike(b); // going to method that will add my item to collection
+        } catch(Exception e) {
+            System.out.println("Error! Please check if you've done everything right!\n");
+        }
     }
 
     // 2. Remove method
@@ -163,7 +167,7 @@ public class Collection {
             return;
         }
         float kilometersPerDay = 0; // variable that contains average KM per day
-        for (Bicycle b : collection) { // Using improved for loop to
+        for (Bicycle b : collection) { // Using improved for loop
             kilometersPerDay += b.kmPerDay();
         }
         System.out.println("You ride " + kilometersPerDay + " km per day!");

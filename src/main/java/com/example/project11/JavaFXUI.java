@@ -1,7 +1,7 @@
 package com.example.project11;
 
 /* Massage for Valentyna, Vladyslav, Sergiy
-this is test part of my project
+this is a test part of my project
 while I have no more assignments
 I want to try myself in JavaFX
 I believe there will be no issues with it
