@@ -5,6 +5,10 @@ this is a test part of my project
 while I have no more assignments
 I want to try myself in JavaFX
 I believe there will be no issues with it
+
+UPDT:
+I've done some improvements to my main code, and to my JavaFX UI, but I am still thinking how should I write this part
+of my program.
  */
 
 import javafx.application.Application;
@@ -16,16 +20,15 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class JavaFXUI extends Application {
+public abstract class JavaFXUI extends Application {
 
     Stage window;
-    Scene s1, s2;
-
+    Scene s1, s2, s3, s4, s5, s6, s7, s8, s9;
     public static void main(String[] args){
         launch(args);
     }
 
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage, Collection c) throws Exception {
         window = primaryStage;
         // scene 1
         Label l1 = new Label("Welcome to the Bicycle collection!\nClick the button below to continue!");
@@ -38,7 +41,7 @@ public class JavaFXUI extends Application {
 
         // scene 2
         Label l2 = new Label("This scene is still unready\n click the button to come back");
-        Label l3 = new Label("Woops, it didn't work, try again later, I will fix it!");
+
         Button printList = new Button("Print bike list");
         Button add = new Button("Add");
         Button remove = new Button("Remove");
@@ -54,7 +57,13 @@ public class JavaFXUI extends Application {
         VBox layout2 = new VBox(20);
         layout2.getChildren().addAll(l2, printList, add, remove, sort, avg, search, print, read, save, b2);
         s2 = new Scene(layout2, 600, 600);
-        printList.setOnAction(e -> layout2.getChildren().add(l3));
+
+        // Scene for my Search functionality
+        /* Label l3 = new Label();
+        VBox layoutRead = new VBox(20);
+        layoutRead.getChildren().addAll(l3);
+        s3 = new Scene(layout2, 600, 600);
+        search.setOnAction(e -> window.setScene(s3)); */
 
         window.setScene(s1);
         window.setTitle("Bicycle collection");
