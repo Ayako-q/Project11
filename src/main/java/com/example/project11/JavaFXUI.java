@@ -24,11 +24,11 @@ public class JavaFXUI extends Application {
     public static void main(String[] args){
         launch(args);
     }
-    @Override
+
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
         // scene 1
-        Label l1 = new Label("Welcome to the Bicycle collection! Click the button below to continue!");
+        Label l1 = new Label("Welcome to the Bicycle collection!\nClick the button below to continue!");
         Button b1 = new Button("Continue");
         b1.setOnAction(e -> window.setScene(s2));
 
@@ -37,13 +37,23 @@ public class JavaFXUI extends Application {
         s1 = new Scene(layout1, 600, 240);
 
         // scene 2
-        Label l2 = new Label("This scene is still unready, click the button to come back");
+        Label l2 = new Label("This scene is still unready\n click the button to come back");
+        Button printList = new Button("Print bike list");
+        printList.setOnAction(e -> System.out.println("Woops, it doesn't work"));
+        Button add = new Button("Add");
+        Button remove = new Button("Remove");
+        Button sort = new Button("Sort");
+        Button avg = new Button("AVG kmpd");
+        Button search = new Button("Search");
+        Button print = new Button("Show all");
+        Button read = new Button("Read");
+        Button save = new Button("Save");
         Button b2 = new Button("Back");
         b2.setOnAction(e -> window.setScene(s1));
 
         VBox layout2 = new VBox(20);
-        layout2.getChildren().addAll(b2, l2);
-        s2 = new Scene(layout2, 700, 500);
+        layout2.getChildren().addAll(l2, printList, add, remove, sort, avg, search, print, read, save, b2);
+        s2 = new Scene(layout2, 600, 520);
 
         window.setScene(s1);
         window.setTitle("Bicycle collection");
