@@ -20,7 +20,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public abstract class JavaFXUI extends Application {
+public class JavaFXUI extends Application {
 
     Stage window;
     Scene s1, s2, s3, s4, s5, s6, s7, s8, s9;
@@ -28,7 +28,7 @@ public abstract class JavaFXUI extends Application {
         launch(args);
     }
 
-    public void start(Stage primaryStage, Collection c) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
         // scene 1
         Label l1 = new Label("Welcome to the Bicycle collection!\nClick the button below to continue!");
