@@ -9,7 +9,12 @@ I believe there will be no issues with it
 UPDT:
 I've done some improvements to my main code, and to my JavaFX UI, but I am still thinking how should I write this part
 of my program.
+
+UPDT 2:
+Ive decided to experiment with the adaptation of my code in another project,
+you can find it on my GitHub "Project 11 UI"
  */
+
 
 import javafx.application.Application;
 import javafx.event.*;
